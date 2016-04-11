@@ -1,17 +1,20 @@
 class IssController < ApplicationController
-  unloadable
+  class IssConfig
+    include ActiveModel::Model
 
-
+    attr_accessor :id, :issue, :ip
+  end
   def index
-    @issue = params[:issue]
-    @id = params[:id]
+    @form = IssConfig.new
+    @form.issue = params[:issue]
+    @form.id = params[:id]
   end
 
   def new
   end
 
-  def submit
-    p params
+  def req
+    p @form
     redirect_to :back
   end
 end
