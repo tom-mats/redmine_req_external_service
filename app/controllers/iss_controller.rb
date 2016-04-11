@@ -8,8 +8,7 @@ class IssController < ApplicationController
     @form = IssConfig.new
     @form.issue = params[:issue]
     @form.id = params[:id]
-    p @form
-    p params
+    list = User.current.custom_field_values.select{|elem| elem.custom_file.name == "list"}.map { |e| e.value }
   end
 
   def new
