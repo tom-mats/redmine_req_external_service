@@ -13,6 +13,7 @@ class IssController < ApplicationController
   def req
     p @issue
     p @id
+    p params
     redirect_to action: 'index'
   end
 end
