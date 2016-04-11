@@ -1,24 +1,23 @@
 class IssController < ApplicationController
   unloadable
-  class TargetConfig
-    attr_accessor :ip
+  class ExtractForm
+    include ActiveModel::Model
+
+    attr_accessor :ip, :issue, :id
   end
 
 
   def index
-    @issue = params[:issue]
-    @id = params[:id]
-    @target = TargetConfig.new
-    p
+    @form = ExtractForm.new
+    @form.issue = params[:issue]
+    @form.id = params[:id]
   end
 
   def new
   end
 
   def req
-    p @issue
-    p @id
-    p @target
+    p @form
     p params
     redirect_to :back
   end

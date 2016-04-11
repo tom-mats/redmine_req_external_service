@@ -1,5 +1,5 @@
 <h2>ISS Extract</h2>
-
-Extract <%= @id %> to <%= select :target, :ip, {"test" => "10.18.45.102"} %>
-
-<%= button_to "Extract!", {:action => "req", :id => @id, :issue => @issue, :target => @target.ip}%>
+<%= form_for @form, url: do |f| %>
+  <%= f.select :ip, {"test" => "10.18.45.102"} %>
+  <%= f.submit "Extract!" %>
+<% end %>
