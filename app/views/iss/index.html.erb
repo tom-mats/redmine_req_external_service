@@ -1,1 +1,5 @@
-<h2>IssController#index</h2>
+<h2>ISS Extract</h2>
+
+Extract <%= @id %> to <%= select :page, :name, {"test" => "10.18.45.102"} $>
+
+<%= button_to "Extract!", :action => "req" %>

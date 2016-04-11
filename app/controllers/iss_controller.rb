@@ -4,15 +4,15 @@ class IssController < ApplicationController
 
   def index
     @issue = params[:issue]
-    @iss_id = params[:id]
-    p @issue
-    p @iss_id
+    @id = params[:id]
   end
 
   def new
   end
 
   def req
+    p @issue
+    p @id
     redirect_to action: 'index'
   end
 end
