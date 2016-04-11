@@ -1,5 +1,5 @@
 <h2>ISS Extract</h2>
 
-Extract <%= @id %> to <%= select :page, :name, {"test" => "10.18.45.102"} %>
+Extract <%= @id %> to <%= select :target, :ip, {"test" => "10.18.45.102"} %>
 
-<%= button_to "Extract!", :action => "req" %>
+<%= button_to "Extract!", {:action => "req", :id => @id, :issue => @issue, :target => @target.ip}%>
