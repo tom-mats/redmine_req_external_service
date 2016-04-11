@@ -9,6 +9,7 @@ class IssController < ApplicationController
     @issue = params[:issue]
     @id = params[:id]
     @target = TargetConfig.new
+    p
   end
 
   def new
@@ -17,7 +18,8 @@ class IssController < ApplicationController
   def req
     p @issue
     p @id
+    p @target
     p params
-    redirect_to action: 'index'
+    redirect_to {action: 'index', id: params[:id], issue: params[:issue], target: params[:target]}
   end
 end
