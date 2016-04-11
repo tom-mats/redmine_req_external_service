@@ -1,10 +1,14 @@
 class IssController < ApplicationController
   unloadable
+  class TargetConfig
+    attr_accessor :ip
+  end
 
 
   def index
     @issue = params[:issue]
     @id = params[:id]
+    @target = TargetConfig.new
   end
 
   def new
