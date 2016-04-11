@@ -8,6 +8,8 @@ class IssController < ApplicationController
     @form = IssConfig.new
     @form.issue = params[:issue]
     @form.id = params[:id]
+    p @form
+    p params
   end
 
   def new

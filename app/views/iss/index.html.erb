@@ -1,5 +1,5 @@
 <h2>ISS Extract</h2>
-<%= form_for @form, :url => {:action => "req"}  do |f| %>
+<%= form_for @form, :url => {:action => "req", :issue => @form.issue}  do |f| %>
   <%= f.select :ip, {"test" => "10.18.45.102"} %>
   <%= f.submit "Extract!" %>
 <% end %>
