@@ -20,6 +20,6 @@ class IssController < ApplicationController
     p @id
     p @target
     p params
-    redirect_to {action: 'index', id: params[:id], issue: params[:issue], target: params[:target]}
+    redirect_to :back
   end
 end
