@@ -14,6 +14,7 @@ class IssController < ApplicationController
   end
 
   def req
+    p params
     p @form
     redirect_to :back
   end
