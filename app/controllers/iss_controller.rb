@@ -10,7 +10,7 @@ class IssController < ApplicationController
   def new
   end
 
-  def req
+  def submit
     p params
     redirect_to :back
   end
