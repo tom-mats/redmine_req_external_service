@@ -11,3 +11,9 @@ Redmine::Plugin.register :redmine_req_external_service do
     iss_ext_service: ""
   }, partial: 'settings/req_external_service_settings'
 end
+
+Redmine::WikiFormatting::Macros.register do
+  macro :iss do |obj, args|
+    link_to(args.first, {controller: 'iss', action: 'index', id: args.first, issue: @issue})
+  end
+end
