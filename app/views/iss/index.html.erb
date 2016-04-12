@@ -1,5 +1,12 @@
 <h2>ISS Extract</h2>
 <%= form_for @form, :url => {:action => "req", :issue => @form.issue}  do |f| %>
-  <%= f.select :ip, {"test" => "10.18.45.102"} %>
-  <%= f.submit "Extract!" %>
+  <div class="extract iss">
+    Extract iss file <%= link_to "#" + @form.id.to_s, 'http://www.google.co.jp' %> to <%= f.select :ip, @ip_table%>
+  </div>
+  <h3>Details</h3>
+  <p><%= f.submit "Extract!" %>
+    <% if @form.issue %>
+      <%= link_to "back to ticket", {controller: 'issues', action: 'show', id: @form.issue } %>
+    <% end %>
+  </p>
 <% end %>
