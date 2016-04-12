@@ -20,6 +20,11 @@ class ZipController < ApplicationController
 
   def req
     ip = params[:zip_controller_zip_config][:ip]
+    issue = params[:issue]
+    id = params[:id]
+    url = Setting.plugin_redmine_req_external_service['zip_ext_exec']
+    p params
+    p url
     redirect_to ({action: 'index', issue: params[:issue]}), notice: "Extract to #{ip}. Wait a minute..."
   end
 end

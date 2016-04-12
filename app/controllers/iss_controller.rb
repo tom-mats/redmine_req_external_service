@@ -1,6 +1,6 @@
 class IssController < ApplicationController
   unloadable
-  
+
   class IssConfig
     include ActiveModel::Model
 
@@ -21,6 +21,9 @@ class IssController < ApplicationController
 
   def req
     ip = params[:iss_controller_iss_config][:ip]
+    issue = params[:issue]
+    id = params[:id]
+    url = Setting.plugin_redmine_req_external_service['iss_ext_exec']
     redirect_to ({action: 'index', issue: params[:issue]}), notice: "Extract to #{ip}. Wait a minute..."
   end
 end
