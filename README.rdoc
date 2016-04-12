@@ -1,3 +1,0 @@
-= redmine_req_external_service
-
-Description goes here
