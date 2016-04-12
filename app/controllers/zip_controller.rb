@@ -7,7 +7,7 @@ class ZipController < ApplicationController
   end
   def index
     @form = params[:notice]
-    @form = IssConfig.new
+    @form = ZipConfig.new
     @form.issue = params[:issue]
     @form.id = params[:id]
     list = User.current.custom_field_values
@@ -19,7 +19,7 @@ class ZipController < ApplicationController
   end
 
   def req
-    ip = params[:iss_controller_iss_config][:ip]
+    ip = params[:zip_controller_zip_config][:ip]
     redirect_to ({action: 'index', issue: params[:issue]}), notice: "Extract to #{ip}. Wait a minute..."
   end
 end
