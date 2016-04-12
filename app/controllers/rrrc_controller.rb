@@ -10,6 +10,9 @@ class RrrcController < ApplicationController
     @form = RrrcConfig.new
     @form.issue = params[:issue]
     @form.id = params[:id]
+    @attachment = Attachment.find(params[:id])
+    @content = File.read(@attachment.diskfile, :mode => "rb") if @attachment
+    p @content
     list = User.current.custom_field_values
              .select{|e| e.custom_field.name == "list"}
              .map { |e| e.value.split(",") }.flatten

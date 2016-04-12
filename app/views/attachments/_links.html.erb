@@ -8,7 +8,7 @@
 </div>
 <% for attachment in attachments %>
 <p><%= link_to_attachment attachment, :class => 'icon icon-attachment', :download => true -%>
-  <% if attachment.is_text? || attachment.is_image? %>
+  <% if attachment.is_text? %>
     <%= link_to content_tag(:i, '', class: 'fa fa-eye fa-1p3x'),
                 { :controller => 'attachments', :action => 'show',
                   :id => attachment, :filename => attachment.filename } %>
@@ -19,6 +19,10 @@
   <% if attachment.filename =~ /test.*\.rb$/ %>
     <%= link_to content_tag(:i, '', class: 'fa fa-spin fa-refresh fa-1p3x'),
                 {controller: 'rrrc', action: 'index', id: attachment, issue: @issue} %>
+  <% end %>
+  <% if attachment.filename =~ /\.zip$/ %>
+    <%= link_to content_tag(:i, '', class: 'fa fa-upload fa-1p3x'),
+                {controller: 'zip', action: 'index', id: attachment, issue: @issue} %>
   <% end %>
   <% if options[:deletable] %>
     <%= link_to content_tag(:i, '', class: 'fa fa-trash fa-1p3x'),

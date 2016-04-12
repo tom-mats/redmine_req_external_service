@@ -1,9 +1,8 @@
 <h2>Zip Extract</h2>
 <%= form_for @form, :url => {:action => "req", :issue => @form.issue}  do |f| %>
   <div class="extract iss">
-    Extract zip file <%= link_to "#" + @form.id.to_s, 'http://www.google.co.jp' %> to <%= f.select :ip, @ip_table%>
+    Extract zip file <%= link_to_attachment @attachment, :download => true -%> to <%= f.select :ip, @ip_table%>
   </div>
-  <h3>Details</h3>
   <p><%= f.submit "Extract!" %>
     <% if @form.issue %>
       <%= link_to "back to ticket", {controller: 'issues', action: 'show', id: @form.issue } %>
